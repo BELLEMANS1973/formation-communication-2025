@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mieux se connaître pour mieux communiquer | Beelink Formation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #249F9B;
+            --secondary-green: #199E99;
+            --accent-orange: #F59F15;
+            --text-black: #333333;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-black);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            background: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .communication-visual {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(36, 159, 155, 0.1), rgba(245, 159, 21, 0.1));
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .communication-icons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .icon-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .icon-item:nth-child(1) { animation-delay: 0.2s; }
+        .icon-item:nth-child(2) { animation-delay: 0.4s; }
+        .icon-item:nth-child(3) { animation-delay: 0.6s; }
+        .icon-item:nth-child(4) { animation-delay: 0.8s; }
+
+        .icon-item i {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-item:hover i {
+            transform: scale(1.2);
+            color: var(--accent-orange);
+        }
+
+        .icon-item span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-black);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--white);
+            padding: 60px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:nth-child(even) {
+            border-left-color: var(--accent-orange);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card:nth-child(even) h3 {
+            color: var(--accent-orange);
+        }
+
+        /* Programme Section */
+        .programme-section {
+            background: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 50px;
+        }
+
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .accordion-header {
+            padding: 25px 30px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+        }
+
+        .accordion-header.active {
+            background: linear-gradient(135deg, var(--accent-orange), #e6890d);
+        }
+
+        .accordion-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--white);
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 30px;
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .accordion-body li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .accordion-body li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        /* Location Section */
+        .location-section {
+            background: var(--white);
+            padding: 60px 0;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .location-info {
+            padding: 20px;
+        }
+
+        .location-info h3 {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .date-info {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .date-info .date {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .date-info .duration {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .address {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .address i {
+            color: var(--accent-orange);
+            margin-right: 10px;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Downloads Section */
+        .downloads-section {
+            background: var(--light-gray);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--accent-orange), #e6890d);
+        }
+
+        .download-btn i {
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-black);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+        }
+
+        .footer-links a {
+            color: var(--primary-green);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .communication-icons {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .icon-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8IS0tIEJlZWxpbmsgbG9nbyBwbGFjZWhvbGRlciAtLT4KPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSI4MCIgZmlsbD0id2hpdGUiIHJ4PSIxMCIvPgo8dGV4dCB4PSIxMDAiIHk9IjMwIiBmb250LWZhbWlseT0iUG9wcGlucyIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzI0OUY5QiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmVlbGluazwvdGV4dD4KPHR4dCB4PSIxMDAiIHk9IjUwIiBmb250LWZhbWlseT0iUG9wcGlucyIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Rk9STUFUSU9OPC90ZXh0Pgo8L3N2Zz4K" alt="Beelink Formation" class="logo">
+                <h1>Mieux se connaître pour mieux communiquer</h1>
+                <p class="subtitle">dans son environnement professionnel</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Visual -->
+    <section class="hero-visual">
+        <div class="container">
+            <div class="communication-visual">
+                <div class="communication-icons">
+                    <div class="icon-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Communication<br>Interactive</span>
+                    </div>
+                    <div class="icon-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Relations<br>Interpersonnelles</span>
+                    </div>
+                    <div class="icon-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Connaissance<br>de Soi</span>
+                    </div>
+                    <div class="icon-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>Assertivité<br>Professionnelle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-bullseye"></i> Objectifs Pédagogiques</h3>
+                    <ul>
+                        <li>Analyser son mode de fonctionnement et observer celui des autres</li>
+                        <li>S'adapter à son interlocuteur pour établir une communication constructive</li>
+                        <li>Pratiquer l'assertivité dans les situations relationnelles tendues</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-users"></i> Public Concerné</h3>
+                    <p>Toute personne de l'entreprise désireuse de développer des relations interpersonnelles constructives dans son quotidien professionnel.</p>
+                    <br>
+                    <p><strong>Prérequis :</strong> Aucun prérequis nécessaire</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-certificate"></i> Compétences Visées</h3>
+                    <ul>
+                        <li>Adapter sa communication en fonction de ses interlocuteurs et des situations</li>
+                        <li>Exprimer son avis, formuler une critique de manière constructive</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-clock"></i> Informations Pratiques</h3>
+                    <p><strong>Durée :</strong> 14 heures (2 jours)</p>
+                    <p><strong>Groupe :</strong> 8 participants maximum</p>
+                    <p><strong>Formatrice :</strong> Pascaline BELLEMANS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Section -->
+    <section class="programme-section">
+        <div class="container">
+            <h2 class="section-title">Programme Détaillé</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Intégrer les lois essentielles de la communication interpersonnelle</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Décoder le schéma de la communication</li>
+                                <li>Distinguer la communication verbale, para-verbale, non verbale</li>
+                                <li>Appréhender les notions de cadre de référence et de filtres en communication</li>
+                                <li>Identifier les distorsions et interprétations dans la relation à autrui</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Analyser son mode de fonctionnement et celui des autres</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Examiner les principaux styles de comportements</li>
+                                <li>Identifier quelques programmes de traitement de l'information</li>
+                                <li>Repérer ses préférences comportementales</li>
+                                <li>Observer le fonctionnement de l'autre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Communiquer de manière constructive avec son interlocuteur</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Établir le contact et créer un climat de confiance</li>
+                                <li>Se centrer sur l'autre en pratiquant l'écoute active</li>
+                                <li>Utiliser le questionnement et la reformulation dans l'échange</li>
+                                <li>Adapter sa communication en fonction du comportement observé chez l'autre</li>
+                                <li>Transmettre un message clair et constructif</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Faire face aux situations délicates dans les relations de travail</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Formuler une critique et savoir la recevoir</li>
+                                <li>Oser dire, exprimer un avis, un besoin</li>
+                                <li>Mobiliser ses ressources pour mieux vivre les situations professionnelles difficiles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Méthodes et Moyens Pédagogiques</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Autodiagnostic et tests de communication</li>
+                                <li>Mises en situation pratiques</li>
+                                <li>Partage d'expériences en groupe</li>
+                                <li>Exercices de visualisation positive</li>
+                                <li>Groupe de 8 participants maximum pour faciliter les échanges</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Suivi et Évaluation</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Évaluation continue des acquis par travaux dirigés et pratiques</li>
+                                <li>Vérification des connaissances par QCM</li>
+                                <li>Feuille de présence émargée par demi-journée</li>
+                                <li>Évaluation qualitative de fin de formation</li>
+                                <li>Attestation de fin de formation remise au stagiaire</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+        <div class="container">
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Dates et Lieu de Formation</h3>
+                    <div class="date-info">
+                        <div class="date">16 & 17 Octobre 2025</div>
+                        <div class="duration">2 jours - 14 heures</div>
+                    </div>
+                    <div class="address">
+                        <p><i class="fas fa-map-marker-alt"></i><strong>B'COWORKER</strong></p>
+                        <p><i class="fas fa-road"></i>3 rue Jacques Daguerre</p>
+                        <p><i class="fas fa-city"></i>44300 NANTES</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2709.8661537842747!2d-1.5619997842616842!3d47.23886597916168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805ee81b0f5b5b5%3A0x7b8b8b8b8b8b8b8b!2s3%20Rue%20Jacques%20Daguerre%2C%2044300%20Nantes%2C%20France!5e0!3m2!1sfr!2sfr!4v1635000000000!5m2!1sfr!2sfr"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="downloads-section">
+        <div class="container">
+            <h2 class="section-title">Documents à Télécharger</h2>
+            <a href="programme.pdf" class="download-btn" target="_blank">
+                <i class="fas fa-download"></i>Programme Détaillé (PDF)
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Formateur</h4>
+                    <p>Pascaline BELLEMANS<br>
+                    Formatrice spécialisée en<br>
+                    communication interpersonnelle</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Beelink Formation</h4>
+                    <div class="footer-links">
+                        <a href="#" target="_blank">Politique d'inclusion</a>
+                        <a href="#" target="_blank">Gestion du handicap</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Beelink Formation. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            // Close all other accordions
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                if (header !== element) {
+                    header.classList.remove('active');
+                    header.nextElementSibling.classList.remove('active');
+                    header.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current accordion
+            element.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+
+        // Add smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate icons on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.info-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
